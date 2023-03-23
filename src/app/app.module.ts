@@ -1,14 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './page/home/home.component';
+
+
 import { FormularioComponent } from './page/formulario/formulario.component';
 import { ExibicaoComponent } from './page/exibicao/exibicao.component';
 import { SobrenosComponent } from './page/sobrenos/sobrenos.component';
+
 import { HeaderComponent } from './components/header/header.component';
-import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './page/home/home.component';
+import { environment } from 'src/environments/environments';
 
 @NgModule({
   declarations: [
@@ -22,7 +29,10 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
