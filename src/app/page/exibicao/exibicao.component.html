@@ -1,11 +1,11 @@
 <div class="container mt-5 mb-5">
     <div class="row">
-        <div class="col-3" *ngFor="let dados of clientes">
+        <div class="col-3" *ngFor="let infos of clientes">
             <div class="card" style="width: 18rem;">
-                <img [src]="dados.foto" alt="">
+                <img [src]="infos.url" alt="">
                 <div class="card-body">
-                    <h5 class="card-title">{{dados.nome}}</h5>
-                    <p class="card-text">{{dados.tipo}}</p>
+                    <h5 class="card-title">{{infos.nome}}</h5>
+                    <p class="card-text">{{infos.tipo}}</p>
                 </div>
             </div>
         </div>

@@ -1,21 +1,19 @@
-import { Component } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FirebaseService } from 'src/app/service/firebase.service';
 
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
   styleUrls: ['./formulario.component.css']
 })
-export class FormularioComponent {
+export class FormularioComponent  implements OnInit {
 
-  
   formDataDriven!: FormGroup;
-  clienteCollection!: AngularFirestoreCollection;
+ 
+  constructor(private bob: FormBuilder, private fs: FirebaseService){}
 
-  constructor(private bob: FormBuilder, private af: AngularFirestore){
-
-    this.clienteCollection = af.collection("clientes");
+  ngOnInit(): void {
 
     this.validarForm();
   }
@@ -27,14 +25,13 @@ export class FormularioComponent {
       tipo: ['', [Validators.required, Validators.maxLength(20)]]
     });
   }
-  
-  //Método que recebe o submit
-  cadastrar(){
-    this.clienteCollection.add(this.formDataDriven.value);
-    console.log(this.formDataDriven.value);
-  }
 
-  enviou(){
+  cadastrar(){
+    try{
+    this.fs.cadastraDados(this.formDataDriven.value);
     alert("Formulario Enviado");
+    }catch(err){
+      console.log(err);
+    }
   }
 }
