@@ -7,16 +7,13 @@ import { map } from 'rxjs/operators';
 @Injectable({
     providedIn: 'root'
 })
-export class FirebaseService implements OnInit{
+export class FirebaseService {
 
     minhaColecao: AngularFirestoreCollection
 
     constructor(private af: AngularFirestore){ this.minhaColecao = this.af.collection('clientes');
     }
     
-    ngOnInit(): void {
-       
-    }
 
     //Consultar
     consultaDados(){
@@ -29,6 +26,11 @@ export class FirebaseService implements OnInit{
                 })
             })
         )    
+    }
+
+    //Busca somente um único dado
+    consultaUm(id){
+      return this.minhaColecao.doc(id).valueChanges();  
     }
     
     //Cadastrar

@@ -6,8 +6,19 @@
                 <div class="card-body">
                     <h5 class="card-title">{{infos.nome}}</h5>
                     <p class="card-text">{{infos.tipo}}</p>
+
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-danger btn-block mb-3" (click)="excluir(infos.id)">Excluir</button>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <button class="btn btn-success" [routerLink]="['/update', infos.id]">Editar</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>

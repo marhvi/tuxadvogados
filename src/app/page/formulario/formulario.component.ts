@@ -5,13 +5,13 @@ import { FirebaseService } from 'src/app/service/firebase.service';
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
-  styleUrls: ['./formulario.component.css']
+  styleUrls: []
 })
 export class FormularioComponent  implements OnInit {
 
   formDataDriven!: FormGroup;
  
-  constructor(private bob: FormBuilder, private fs: FirebaseService){}
+  constructor(private formBuilder: FormBuilder, private fs: FirebaseService){}
 
   ngOnInit(): void {
 
@@ -19,7 +19,7 @@ export class FormularioComponent  implements OnInit {
   }
 
   validarForm(){
-    this.formDataDriven = this.bob.group({
+    this.formDataDriven = this.formBuilder.group({
       nome: ['', [Validators.required, Validators.minLength(3)]],
       url: ['', [Validators.required, Validators.minLength(3)]],
       tipo: ['', [Validators.required, Validators.maxLength(20)]]

@@ -4,7 +4,7 @@ import { FirebaseService } from 'src/app/service/firebase.service';
 @Component({
   selector: 'app-exibicao',
   templateUrl: './exibicao.component.html',
-  styleUrls: ['./exibicao.component.css']
+  styleUrls: []
 })
 export class ExibicaoComponent implements OnInit {
   clientes= [];
@@ -12,6 +12,11 @@ export class ExibicaoComponent implements OnInit {
   constructor(private fs: FirebaseService){}  
   
   ngOnInit(): void {
-    this.fs.consultaDados().subscribe(caixinha => this.clientes = caixinha);
+    this.fs.consultaDados().subscribe(result => this.clientes = result);
+  }
+
+  excluir(id){
+    this.fs.excluiDados(id);
+    alert('Dado excluído!')
   }
 }

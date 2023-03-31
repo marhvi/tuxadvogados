@@ -1,0 +1,36 @@
+<div class="container mt-5">
+    <h1 class="text-center">Formulário<h1>
+
+            <form [formGroup]="updateForm" (submit)="atualizar()">
+
+                <div class="row mt-3">
+                    <div class="col">
+                        <label>Informe o nome do cliente</label>
+                        <input class="form-control" type="text" placeholder="Informe o Nome" formControlName="nome">
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col">
+                        <label>Informe a URL da Imagem do Cliente</label>
+                        <input class="form-control" type="text" placeholder="https://imagem.com.br"
+                            formControlName="url">
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col">
+                        <label>Tipo de Cliente</label>
+                        <input class="form-control" type="text" placeholder="Tipo" formControlName="tipo">
+                    </div>
+                </div>
+
+
+                <div class="row mt-3">
+                    <div class="col">
+                        <button class="btn btn-primary" type="submit">Enviar</button>
+                    </div>
+                </div>
+
+
+            </form>

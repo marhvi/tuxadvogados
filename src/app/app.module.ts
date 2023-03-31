@@ -16,6 +16,7 @@ import { SobrenosComponent } from './page/sobrenos/sobrenos.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './page/home/home.component';
 import { environment } from 'src/environments/environments';
+import { FormupdateComponent } from './page/formupdate/formupdate.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { environment } from 'src/environments/environments';
     FormularioComponent,
     ExibicaoComponent,
     SobrenosComponent,
-    HeaderComponent
+    HeaderComponent,
+    FormupdateComponent
   ],
   imports: [
     BrowserModule,
