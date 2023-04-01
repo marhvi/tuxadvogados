@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
@@ -16,7 +17,10 @@ import { SobrenosComponent } from './page/sobrenos/sobrenos.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './page/home/home.component';
 import { environment } from 'src/environments/environments';
+
 import { FormupdateComponent } from './page/formupdate/formupdate.component';
+import { LoginComponent } from './page/login/login.component';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +30,8 @@ import { FormupdateComponent } from './page/formupdate/formupdate.component';
     ExibicaoComponent,
     SobrenosComponent,
     HeaderComponent,
-    FormupdateComponent
+    FormupdateComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,8 @@ import { FormupdateComponent } from './page/formupdate/formupdate.component';
     FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
