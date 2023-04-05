@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AutenticarService } from 'src/app/service/autenticar.service';
 
 @Component({
@@ -13,9 +14,14 @@ export class HomeComponent {
 
   usuario = "";
 
-  constructor(private autenticaService: AutenticarService){}
+  constructor(private autenticaService: AutenticarService, private route: Router){}
 
   ngOnInit(){
      this.autenticaService.detalesUser().user.subscribe(results => this.usuario = results.email);
+  }
+
+  deslogar() {
+    this.autenticaService.logout();
+    this.route.navigate(['']);
   }
 }

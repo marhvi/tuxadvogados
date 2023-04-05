@@ -8,14 +8,16 @@ import { HomeComponent } from './page/home/home.component';
 import { SobrenosComponent } from './page/sobrenos/sobrenos.component';
 import { FormupdateComponent } from './page/formupdate/formupdate.component';
 import { LoginComponent } from './page/login/login.component';
+import { RouterGuard } from './guardRouters/router.guard';
+import { LoginGuard } from './guardRouters/login.guard';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent },
-  {path: 'exibicao', component: ExibicaoComponent},
-  {path: 'form', component: FormularioComponent },
-  {path: 'sobre', component: SobrenosComponent},
+  {path: 'home', component: HomeComponent, canActivate: [RouterGuard] },
+  {path: 'exibicao', component: ExibicaoComponent, canActivate: [RouterGuard]},
+  {path: 'form', component: FormularioComponent, canActivate: [RouterGuard] },
+  {path: 'sobre', component: SobrenosComponent, canActivate: [RouterGuard] },
   {path: 'update/:id', component: FormupdateComponent},
-  {path: 'login', component: LoginComponent}
+  {path: '', component: LoginComponent, canActivate: [LoginGuard]}
 ];
 
 @NgModule({
